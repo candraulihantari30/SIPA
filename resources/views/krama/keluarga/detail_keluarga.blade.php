@@ -104,7 +104,7 @@
                         <td>{{$item->no_kk}}</td>
                         <td>{{$item->nm}}</td>
                         <td>{{$item->statusKeluarga->status_dalam_keluarga}}</td>
-                        <td>{{$item->tmpt}}, {{date('D M Y', strtotime($item->tgl))}}</td>
+                        <td>{{$item->tmpt}}, {{\Carbon\Carbon::parse($item->tgl)->isoFormat('D MMMM Y')}}</td>
                         <td>{{$item->banjarAdat->nama_banjar_adat}}</td>
                         <td>{{$item->tempekan->nama_tempekan}}</td>
                         <td>{{$item->keterangan->nama_keterangan}}</td>

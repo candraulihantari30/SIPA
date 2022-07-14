@@ -73,11 +73,11 @@
                     </tr>
                     <tr>
                         <td>Nama Dadya</td>
-                        <td>{{ $krama_desa->nm_ddy }}</td>
+                        <td>{{ $krama_desa->nmddy->nm_ktd }}</td>
                     </tr>
                     <tr>
                         <td>Nama Ketua Dadya</td>
-                        <td>{{ $krama_desa->nm_kt_ddy }}</td>
+                        <td>{{ $krama_desa->ketuaDadya->nm_kt }}</td>
                     </tr>
                 </tbody>
             </table>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dedosan;
 use App\Models\Status;
 use Illuminate\Database\Seeder;
 
@@ -37,6 +38,10 @@ class StatusKramaSeeder extends Seeder
             'status_krama' => 'Yowana',
             'urunan' => 0,
             'jenis' => 'urunan'
+        ]);
+
+        Dedosan::create([
+            'nominal_dedosan'   => 25000,
         ]);
     }
 }

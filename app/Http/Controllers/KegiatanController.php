@@ -15,7 +15,7 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $title = 'Data Jadwal Kegiatan';
+        $title = 'Data Ngayah';
         $jdl = Kegiatan::paginate(5);
         return view('admin.jdkegiatan.index', compact('jdl', 'title'));
     }
@@ -23,7 +23,7 @@ class KegiatanController extends Controller
 
     public function create()
     {
-        $title = 'Tambah Data Jadwal Kegiatan';
+        $title = 'Tambah Data Ngayah';
         $jdl = Kegiatan::all();
         return view(
             'admin.jdkegiatan.create',
@@ -62,7 +62,7 @@ class KegiatanController extends Controller
 
     public function edit($id_kegiatan)
     {
-        $title = 'Edit Data Jadwal Kegiatan';
+        $title = 'Edit Data Ngayah';
         $jdl = Kegiatan::find($id_kegiatan);
         return view('admin.jdkegiatan.edit', compact('title', 'jdl'));
     }

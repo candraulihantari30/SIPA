@@ -32,7 +32,7 @@
                     <th>Nama</th>
                     <th>Kehadiran</th>
                 </tr>
-                @foreach ($krama as $item )
+                @foreach ($krama as $item)
                 <tr>
                     <td>{{$item->dataKrama->nm}}</td>
                     <td>{{$item->kehadiran}}</td>

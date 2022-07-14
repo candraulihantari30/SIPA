@@ -47,7 +47,6 @@ class AbsensiController extends Controller
             'id_kegiatan'           => 'required',
             'tgl_absen'             => '',
         ]);
-        // dd($request);
 
         for ($i = 0; $i < count($request->id_kegiatan); $i++) {
             $absen = new Presensi();
@@ -55,7 +54,6 @@ class AbsensiController extends Controller
             $absen->krama_id = $request->krama_id[$i];
             $absen->id_kegiatan = $request->id_kegiatan[$i];
             $absen->tgl_absen = $request->tgl_absen[$i];
-            // dd($absen);
             $absen->save();
         }
         return redirect()->route('absensi.show', $request->kegiatan_id)->with('success', 'Data Berhasil diinput !');

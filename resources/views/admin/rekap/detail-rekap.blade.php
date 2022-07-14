@@ -18,20 +18,20 @@
                     <th>Kehadiran</th>
                 </tr>
                 <?php $no = 1; ?>
-                <!-- @foreach ($detail as $item) -->
+                @foreach ($detail as $item)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$detail->dataKrama->nm}}</td>
-                    <td>{{$detail->dataKegiatan->nm_kgtn}}</td>
-                    <td>{{ \Carbon\Carbon::parse($detail->dataKegiatan->tgl)->isoFormat('dddd, D MMMM Y')}}</td>
-                    <td>{{$detail->kehadiran}}</td>
+                    <td>{{$item->dataKrama->nm}}</td>
+                    <td>{{$item->dataKegiatan->nm_kgtn}}</td>
+                    <td>{{ \Carbon\Carbon::parse($item->dataKegiatan->tgl)->isoFormat('dddd, D MMMM Y')}}</td>
+                    <td>{{$item->kehadiran}}</td>
                 </tr>
-                <!-- @endforeach -->
+                @endforeach
             </table>
         </div>
     </div>
-    <div class="card-footer text-right">
+    <!-- <div class="card-footer text-right">
         <a href="{{ route('rekap') }}" class="btn btn-danger">Kembali</a>
-    </div>
+    </div> -->
 </div>
 @endsection

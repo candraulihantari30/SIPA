@@ -50,8 +50,6 @@
                             <td>
                                 {{rupiah($rekapAbsen->alpa * 25000)}}
                                 <input type="text" name="nominal[]" value="{{ $rekapAbsen->alpa * 25000 }}" hidden>
-                                <input type="text" name="periode[]" value="{{ \Carbon\Carbon::now()->isoFormat('Y') }}" hidden>
-                                <input type="text" name="jenis[]" value="denda" hidden>
                             </td>
                             <td>
                                 <a href="{{ route('detail.rekap', $rekapAbsen->id) }}" class="btn btn-primary">Detail</a>

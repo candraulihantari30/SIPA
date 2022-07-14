@@ -34,7 +34,6 @@
                     <span> Data Urunan Wajib</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('iuran.index') }}">Tampil Data</a></li>
-                    <li><a class="nav-link" href="{{ route('iuran.create') }}">Tambah Data</a></li>
                 </ul>
             </li>
 
@@ -43,11 +42,9 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-address-card" aria-hidden="true"></i>
                     <span> Data Pamidande</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('iuran.index') }}">Tampil Data</a></li>
-                    <li><a class="nav-link" href="{{ route('iuran.create') }}">Tambah Data</a></li>
+                    <li><a class="nav-link" href="{{ route('rekap.krama') }}">Tampil Data</a></li>
                 </ul>
             </li>
-
             @endif
             @endif
 
@@ -88,10 +85,10 @@
                     <li class="{{ ($title === "Tambah Prajuru Desa Adat") ? 'active' : '' }}"><a class="nav-link" href="{{ route('prajuru.create')}}">Tambah Data</a></li>
                 </ul>
             </li>
-            <li class="menu-header">Urunan wajib & Pengampel</li>
+            <li class="menu-header">Nominal SIPA</li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-address-card" aria-hidden="true"></i>
-                    <span> Data Urunan & Pengampel</span></a>
+                    <span> Data SIPA</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('Urunan.index') }}">Tampil Data</a></li>
 
@@ -101,7 +98,7 @@
             <li class="menu-header">Pembayaran & Transaksi</li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-address-card" aria-hidden="true"></i>
-                    <span> Data </span></a>
+                    <span> Data Pembayaran & Transaksi</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('pembayaran') }}">Pembayaran</a></li>
                     <li><a class="nav-link" href="{{ route('data_transaksi') }}">Transaksi</a></li>

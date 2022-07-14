@@ -18,12 +18,12 @@ class KramaSeeder extends Seeder
     {
         // Krama
         Krama::create([
-            'nik'           => '5108061301010001',
+            'nik'           => '5108040801770003',
             'level'         => 'krama',
-            'no_kk'         => '5208061301010001',
-            'nm'            => 'rizky',
-            'tmpt'          => 'temukus',
-            'tgl'           => '2022-05-06',
+            'no_kk'         => '5108041612090011',
+            'nm'            => 'Nyoman Suardika',
+            'tmpt'          => 'Temukus',
+            'tgl'           => '1977-01-08',
             'stts_dlm_klrg' => '1',
             'jbt'           => '1',
             'bnjr_adt'      => '2',
@@ -35,21 +35,21 @@ class KramaSeeder extends Seeder
             'ktrgn'         => '1',
             'nm_ddy'        => '1',
             'nm_kt_ddy'     => '2',
-            'password'      => bcrypt('Indrawan'),
+            'password'      => bcrypt('Nyoman'),
         ]);
 
         Krama::create([
-            'nik'           => '5108061301010010',
+            'nik'           => '5108046212770001',
             'level'         => 'krama',
-            'no_kk'         => '5208061301010002',
-            'nm'            => 'Surating Raditya Wibawa',
-            'tmpt'          => 'singaraja',
-            'tgl'           => '2022-05-06',
-            'stts_dlm_klrg' => '1',
+            'no_kk'         => '5108041612090011',
+            'nm'            => 'Luh Suhartini',
+            'tmpt'          => 'Bubunan',
+            'tgl'           => '1977-12-22',
+            'stts_dlm_klrg' => '2',
             'jbt'           => '1',
             'bnjr_adt'      => '2',
             'tmpkn'         => '3',
-            'stts'          => '2',
+            'stts'          => '1',
             'pndd'          => '6',
             'pkrjn'         => '2',
             'jk'            => '1',
@@ -77,37 +77,17 @@ class KramaSeeder extends Seeder
             'jenis'         => 'urunan',
         ]);
 
-        Krama::create([
-            'nik'           => '5108061301010002',
-            'no_kk'         => '5208061301010001',
-            'nm'            => 'Kadek Candra Ulihantari',
-            'tmpt'          => 'temukus',
-            'tgl'           => '2022-05-06',
-            'stts_dlm_klrg' => '2',
-            'jbt'           => '1',
-            'bnjr_adt'      => '2',
-            'tmpkn'         => '3',
-            'stts'          => '2',
-            'pndd'          => '6',
-            'pkrjn'         => '4',
-            'jk'            => '1',
-            'ktrgn'         => '1',
-            'nm_ddy'        => '1',
-            'nm_kt_ddy'     => '2',
-            'password'      => bcrypt('cantik01'),
-        ]);
-
         PrajuruAdat::create([
             'nik'           => '5308061301010002',
             'level'         => 'prajuru',
-            'nama_pegawai'  => 'Made Angga Wahyu Darsana',
+            'nama_pegawai'  => 'Kadek Candra Ulihantari',
             'jk'            => '1',
             'jabatan'       => '5',
             'banjar_adat'   => '1',
             'tempekan_id'   => '1',
             'tempat'        => 'Singaraja',
             'tangal_lahir'  => '2022-05-06',
-            'password'      => bcrypt('Indrawan123'),
+            'password'      => bcrypt('Candra'),
         ]);
     }
 }

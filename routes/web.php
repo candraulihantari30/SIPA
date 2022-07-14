@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth:krama', 'ceklevel:krama']], function () {
     Route::get('nota-denda', [NotaController::class, 'index'])->name('nota.denda');
     Route::resource('iuran', UrunanController::class);
     Route::get('/detailKeluarga/{krama}', [KramaController::class, 'keluargadetail'])->name('keluarga.detail');
+    Route::get('rekap-krama', [RekapAbsenController::class, 'dataindex'])->name('rekap.krama');
+    Route::get('detail/{id}/rekap-krama', [RekapAbsenController::class, 'detailrekap'])->name('detail.rekap.krama');
 });
 
 Route::group(['middleware' => ['auth:prajuru', 'ceklevel:prajuru,kelian_tempekan']], function () {
@@ -83,4 +85,6 @@ Route::group(['middleware' => ['auth:prajuru', 'ceklevel:prajuru,kelian_tempekan
     Route::get('transaksi', [TransaksiController::class, 'transaksi'])->name('data_transaksi');
     Route::get('transaksi/{id}/detail', [TransaksiController::class, 'detail_transaksi'])->name('data_transaksi.detail');
     Route::get('kwitansi/{id} ', [TransaksiController::class, 'kwitansi'])->name('kwitansi');
+    Route::get('dedosan/{id}/edit', [UrunanController::class, 'dedosanEdit'])->name('dedosan.edit');
+    Route::put('dedosan/{id}/edit', [UrunanController::class, 'dedosanUpdate'])->name('dedosan.update');
 });

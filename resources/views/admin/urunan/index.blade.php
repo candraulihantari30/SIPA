@@ -5,43 +5,56 @@
 @endsection
 
 @section('content')
+@if (Auth::guard('krama')->user()->level == "krama")
 <div class="card">
     <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tr class="thead-light text-center">
-                    <th>#</th>
-                    <!-- <th>NIK</th>
-                    <th>Nama</th>
-                    <th>Status</th>
-                    <th>Jumalah Urunan</th>
-                    <th>Periode</th> -->
+                    <th width="100px">#</th>
                     <th>Status Krama</th>
                     <th>Nominal Urunan</th>
-                    <th>Aksi</th>
-
                 </tr>
-                <?php $no = 1; ?>
-                @foreach ($status_urunan as $item)
                 <tr>
-                    <td class="text-center">{{$no}}</td>
-                    <td>{{ $item->status_krama }}</td>
-                    <td>{{ rupiah($item->urunan) }}</td>
+                    <td class="text-center">1</td>
+                    <td>{{ $urunan_krama->status->status_krama }}</td>
+                    <td>{{ rupiah($urunan_krama->status->urunan) }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
-                    <td class="text-center">
-                        <div class="d-flex d-inline-flex">
-                            <a href="{{ route('Urunan.edit', $item->id) }}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit">
-                                <i class="fa fa-pen"></i>
-                            </a>
-                        </div>
+@elseif (Auth::guard('prajuru')->user()->level == "prajuru")
+
+<div class="card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr class="thead-light text-center">
+                    <th width="100px">#</th>
+                    <th>Nominal Dedosan</th>
+                    <th>Aksi</th>
+                </tr>
+                <?php $urut = 1; ?>
+                @foreach ($dedosan as $denda)
+                <tr>
+                    <td class="text-center">{{ $urut }}</td>
+                    <td>{{ rupiah($denda->nominal_dedosan) }}</td>
+                    <td class=" text-center">
+                        <a href="{{ route('dedosan.edit', $denda->id) }}" class="btn btn-info">
+                            <i class="fa fa-pen"></i>
+                        </a>
                     </td>
                 </tr>
-                <?php $no++; ?>
+                <?php $urut++ ?>
                 @endforeach
             </table>
         </div>
     </div>
 </div>
+@endif
+
 
 @endsection
 <!-- @push('javascript')

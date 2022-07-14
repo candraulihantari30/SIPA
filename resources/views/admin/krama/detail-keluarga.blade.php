@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <td>Jenis Kelamin</td>
-                        <td>{{ $krama_desa->jenisKelamin->jenisKelamin }}</td>
+                        <td>{{ $krama_desa->jenisKelamin->jenis_kelamin }}</td>
                     </tr>
                     <tr>
                         <td>Keterangan</td>
@@ -69,11 +69,11 @@
                     </tr>
                     <tr>
                         <td>Nama Dadya</td>
-                        <td>{{ $krama_desa->nmddy->nm_ddy }}</td>
+                        <td>{{ $krama_desa->nmddy->nm_ktd }}</td>
                     </tr>
                     <tr>
                         <td>Nama Ketua Dadya</td>
-                        <td>{{ $krama_desa->ketuaDadya->nm_ktd }}</td>
+                        <td>{{ $krama_desa->ketuaDadya->nm_kt }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -104,7 +104,7 @@
                         <td>{{$item->no_kk}}</td>
                         <td>{{$item->nm}}</td>
                         <td>{{$item->statusKeluarga->status_dalam_keluarga}}</td>
-                        <td>{{$item->tmpt}}, {{date('D M Y', strtotime($item->tgl))}}</td>
+                        <td>{{$item->tmpt}}, {{\Carbon\Carbon::parse($item->tgl)->isoFormat('D MMMM Y')}}</td>
                         <td>{{$item->banjarAdat->nama_banjar_adat}}</td>
                         <td>{{$item->tempekan->nama_tempekan}}</td>
                         <td>{{$item->keterangan->nama_keterangan}}</td>

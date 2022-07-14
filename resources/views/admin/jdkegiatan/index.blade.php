@@ -33,7 +33,10 @@
                     <td class="text-center">
                         <div class="d-flex d-inline-flex">
                             @if (Auth::guard('prajuru')->user()->level == "prajuru")
-                            <a href="{{route('JadwalKegiatan.edit', $kgt->id_kegiatan)}}" class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="Detail Absen">
+                            <a href="{{route('JadwalKegiatan.edit', $kgt->id_kegiatan)}}" class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="Edit Kegiatan">
+                                <i class="fa fa-pen" aria-hidden="true"></i>
+                            </a>
+                            <a href="{{route('absensi.show', $kgt->id_kegiatan)}}" class="btn btn-info mr-2" data-toggle="tooltip" data-placement="top" title="Detail Absen">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
                             <a href="{{route('absen.create', $kgt->id_kegiatan)}}" class="btn btn-warning mr-2" data-toggle="tooltip" data-placement="top" title="Absen">

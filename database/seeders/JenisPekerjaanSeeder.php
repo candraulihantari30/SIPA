@@ -46,11 +46,6 @@ class JenisPekerjaanSeeder extends Seeder
 
         JenisPekerjaan::create([
             'id_pekerjaan' => '7',
-            'nama_pekerjaan' => 'Belum Bekerja'
-        ]);
-
-        JenisPekerjaan::create([
-            'id_pekerjaan' => '8',
             'nama_pekerjaan' => 'Lainnya'
         ]);
     }

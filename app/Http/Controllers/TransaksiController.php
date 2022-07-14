@@ -16,14 +16,13 @@ class TransaksiController extends Controller
     public function index()
     {
         $title = "Pembayaran";
-        // $urunan = Krama::join('irnws', 'kramas.id', '=', 'irnws.nik_krama')->where('jenis', 'like', "%" . 'urunan' . "%")->get();
         $nominal_urunan = Krama::join('irnws', 'kramas.id', '=', 'irnws.nik_krama');
         $nominal_denda = Krama::join('rekap_absens', 'kramas.id', '=', 'rekap_absens.krama_id');
         $urunan = Krama::join('irnws', 'kramas.id', '=', 'irnws.nik_krama');
         $denda = Krama::join('rekap_absens', 'kramas.id', '=', 'rekap_absens.krama_id');
 
         if (request('cari_nik') || request('cari_jenis') || request('cari_periode')) {
-            // dd(request('cari_nik'));
+            //Script untuk mencari data
             $nominal_urunan->where('stts_dlm_klrg', '=', '1')->where('status_pembayaran', '!=', 'lunas')
                 ->where('nik', 'like', '%' . request('cari_nik') . '%')
                 ->where('jenis', 'like', '%' . request('cari_jenis') . '%')
@@ -69,7 +68,6 @@ class TransaksiController extends Controller
         $transaksi->id_user = $request->id_user;
         $transaksi->id_prajuru = $request->id_prajuru;
         $transaksi->tgl_transaksi = $request->tgl_transaksi;
-        // dd($transaksi);
         $transaksi->save();
 
         if ($request->jenis == 'urunan' && $request->djenis == 'denda') {
@@ -78,7 +76,6 @@ class TransaksiController extends Controller
             $detail_transaksi->jenis = $request->jenis;
             $detail_transaksi->periode = $request->periode;
             $detail_transaksi->nominal = $request->nominal_urunan;
-            // dd($detail_transaksi);
             $detail_transaksi->save();
 
             $detail_transaksi = new Detail();
@@ -86,7 +83,6 @@ class TransaksiController extends Controller
             $detail_transaksi->jenis = $request->djenis;
             $detail_transaksi->periode = $request->dperiode;
             $detail_transaksi->nominal = $request->nominal_denda;
-            // dd($detail_transaksi);
             $detail_transaksi->save();
 
             $urunan = Irnw::where('nik_krama', $request->id_user)->first();
@@ -102,7 +98,6 @@ class TransaksiController extends Controller
             $detail_transaksi->jenis = $request->jenis;
             $detail_transaksi->periode = $request->periode;
             $detail_transaksi->nominal = $request->nominal_urunan;
-            // dd($detail_transaksi);
             $detail_transaksi->save();
 
             $urunan = Irnw::where('nik_krama', $request->id_user)->first();
@@ -114,7 +109,6 @@ class TransaksiController extends Controller
             $detail_transaksi->jenis = $request->djenis;
             $detail_transaksi->periode = $request->dperiode;
             $detail_transaksi->nominal = $request->nominal_denda;
-            // dd($detail_transaksi);
             $detail_transaksi->save();
 
             $denda = RekapAbsen::where('krama_id', $request->id_user)->first();

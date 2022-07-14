@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Dedosan;
 use App\Models\Irnw;
 use App\Models\Krama;
 use App\Models\Status;
@@ -31,7 +31,9 @@ class UrunanController extends Controller
         //     }
         // }
         $status_urunan = Status::get();
-        return view('admin.urunan.index', compact('title', 'status_urunan'));
+        $dedosan = Dedosan::get();
+        $urunan_krama = Krama::with('status')->where('id', Auth::guard('krama')->user()->id)->first();
+        return view('admin.urunan.index', compact('title', 'status_urunan', 'dedosan', 'urunan_krama'));
     }
 
     /**
@@ -144,5 +146,25 @@ class UrunanController extends Controller
         $urunan->save();
 
         return redirect('Urunan');
+    }
+
+    public function dedosanEdit($id)
+    {
+        $title = "Ubah Nominal Dedosan";
+        $dedosan = Dedosan::find($id);
+        return view('admin.urunan.dedosanEdit', compact('dedosan', 'title'));
+    }
+
+    public function dedosanUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'nominal_dedosan'   => 'required|numeric',
+        ]);
+
+        $dedosan = Dedosan::find($id);
+        $dedosan->nominal_dedosan = $request->nominal_dedosan;
+        $dedosan->save();
+
+        return redirect()->route('Urunan.index')->with('success', 'Nominal Dedosan Berhasil diubah !');
     }
 }

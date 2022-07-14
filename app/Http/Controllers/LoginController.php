@@ -22,10 +22,10 @@ class LoginController extends Controller
         if (Auth::guard('krama')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/beranda');
+            return redirect('/beranda')->with('success', 'Login Berhasil');
         } elseif (Auth::guard('prajuru')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->intended('dashboard')->with('success', 'Login Berhasil');
         }
 
         return back()->with('loginError', 'Login Gagal! NIK atau password salah!');
@@ -37,12 +37,12 @@ class LoginController extends Controller
             Auth::guard('krama')->logout();
             $request->session()->invalidate();
             $request->session()->regenerate();
-            return redirect('/login');
+            return redirect('/login')->with('success', 'Berhasi Logout');;
         } elseif (Auth::guard('prajuru')->check()) {
             Auth::guard('prajuru')->logout();
             $request->session()->invalidate();
             $request->session()->regenerate();
-            return redirect('/login');
+            return redirect('/login')->with('error', 'Berhasi Logout');
         }
     }
 }

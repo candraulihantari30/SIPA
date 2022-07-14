@@ -193,5 +193,10 @@ class NamaddySeeder extends Seeder
             'id_ddys' => '36',
             'nm_ktd' => 'Pasek'
         ]);
+
+        Nmddy::create([
+            'id_ddys' => '37',
+            'nm_ktd' => 'Lainnya'
+        ]);
     }
 }
